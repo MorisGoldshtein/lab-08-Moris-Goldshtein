@@ -1,22 +1,12 @@
 #include <iostream>
-#include <cassert>
-#include <cstdlib>
-#include <fstream>
-
 #include "imagehelpers.h"
+
 int main(){
-    //Invert colors 
-    task_a("inImage.pgm");
-    //Invert colors right side
-    task_b("inImage.pgm");
-    //White box
-    task_c("inImage.pgm");
-    //White outline
-    task_d("inImage.pgm");
-    //200% scale
-    task_e("inImage.pgm");    
-    //Pixelate
-    task_f("inImage.pgm");
+  int width = 0, height = 0, img[MAX_H][MAX_W];
+  invert(width, height, img);
+  inverthalf(width, height, img);
+  box(width, height, img);
+  frame(width, height, img);
+  scale(width, height, img);
+  pixelate(width, height, img);
 }
-
-

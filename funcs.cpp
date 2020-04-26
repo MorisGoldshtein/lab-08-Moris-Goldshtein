@@ -7,46 +7,46 @@
 
 
 //Complete
-void task_a(std::string input_file){
+void invert(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//    int out[MAX_H][MAX_W];
+//    int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
 
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row++){
-        for (int col = 0; col < w; col++){
+    for (int row = 0; row < height; row++){
+        for (int col = 0; col < width; col++){
             //Invert color by doing 255 - the original color number
             out[row][col] = 255 - img[row][col];
         }
     }
-    // and save this new image to file 
-    writeImage("taska.pgm", out, h, w);
+    // and save this new image to file
+    writeImage("taska.pgm",out, height, width);
 }
 
 
 //Complete
-void task_b(std::string input_file){
+void inverthalf(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//   int out[MAX_H][MAX_W];
+  //  int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
 
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row++){
-        for (int col = 0; col < w; col++){
+    for (int row = 0; row < height; row++){
+        for (int col = 0; col < width; col++){
             //Invert colors in right half
-            if(col > w/2){
+            if(col > width/2){
                 out[row][col] = 255 - img[row][col];
             }
             //Leave colors in left half alone
@@ -55,32 +55,32 @@ void task_b(std::string input_file){
             }
         }
     }
-    // and save this new image to file 
-    writeImage("taskb.pgm", out, h, w);
+    // and save this new image to file
+    writeImage("taskb.pgm", out, height, width);
 }
 
 
 //Complete
-void task_c(std::string input_file){
+void box(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//    int out[MAX_H][MAX_W];
+//    int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
 
     //Sides of white box
-    int left = w/4;
-    int right = 3*w/4;
-    int top = h/4;
-    int bottom = 3*h/4;
-    
+    int left = width/4;
+    int right = 3*width/4;
+    int top = height/4;
+    int bottom = 3*height/4;
+
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row++){
-        for (int col = 0; col < w; col++){
+    for (int row = 0; row < height; row++){
+        for (int col = 0; col < width; col++){
             //Change middle area to white to create a white box by staying within sides
             if ( (col <= right && col >= left) && (row >= top && row <= bottom) ){
                 out[row][col] = 255;
@@ -91,39 +91,39 @@ void task_c(std::string input_file){
             }
         }
     }
-    // and save this new image to file 
-    writeImage("taskc.pgm", out, h, w);
+    // and save this new image to file
+    writeImage("taskc.pgm", out, height, width);
 
     //std::cout << w << " " << h << " " << std::endl;
     //std::cout << left << " " << right << " " << top << " " << bottom << " " << std::endl;
-    
+
     // With cat photo
-    // 250 194  
+    // 250 194
     // 62 187 48 145
 }
 
 
 //Complete
-void task_d(std::string input_file){
+void frame(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//   int out[MAX_H][MAX_W];
+//    int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
 
     //Sides of white box
-    int left = w / 4;
-    int right = 3 * w / 4;
-    int top = h / 4;
-    int bottom = 3 * h / 4;
+    int left = width / 4;
+    int right = 3 * width / 4;
+    int top = height / 4;
+    int bottom = 3 * height / 4;
 
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row++){
-        for (int col = 0; col < w; col++){
+    for (int row = 0; row < height; row++){
+        for (int col = 0; col < width; col++){
             //Change middle area to white to create a white box by staying within sides
             if ((col <= right && col >= left) && (row >= top && row <= bottom)){
                 out[row][col] = 255;
@@ -132,25 +132,25 @@ void task_d(std::string input_file){
             else{
                 out[row][col] = img[row][col];
             }
-            //Change inside of white area back to original but leave outer edge as white 
+            //Change inside of white area back to original but leave outer edge as white
             if ((col < right && col > left) && (row > top && row < bottom)){
                 out[row][col] = img[row][col];
             }
         }
     }
-    // and save this new image to file 
-    writeImage("taskd.pgm", out, h, w);
+    // and save this new image to file
+    writeImage("taskd.pgm", out, height, width);
 }
 
 
 //Complete
-void task_e(std::string input_file){
+void scale(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//    int out[MAX_H][MAX_W];
+//    int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
@@ -163,8 +163,8 @@ void task_e(std::string input_file){
     //bool top_left_special = true;
 
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row++){
-        for (int col = 0; col < w; col++){
+    for (int row = 0; row < height; row++){
+        for (int col = 0; col < width; col++){
             //Top left corner, should work , BECAUSE PUSH STARTS AT 0, THIS IS NOT NEEDED, SECOND IF TAKES CARE OF IT
             // if(top_left_special == true){
             //     //Top Left
@@ -183,7 +183,7 @@ void task_e(std::string input_file){
                 out[row+down][col] = img[row][col];
                 //Top Right
                 out[row+down][col+1] = img[row][col];
-                //Bottom Left          
+                //Bottom Left
                 out[row+down+1][col] = img[row][col];
                 //Bottom Right
                 out[row+down+1][col+1] = img[row][col];
@@ -191,7 +191,7 @@ void task_e(std::string input_file){
             //All other numbers in first row must be pushed right before square
             else if(row == 0 && col != 0 ){
                 //Top Left
-                out[row][col+right] = img[row][col];   
+                out[row][col+right] = img[row][col];
                 //Top Right
                 out[row][col+right+1] = img[row][col];
                 //Bottom Left
@@ -203,7 +203,7 @@ void task_e(std::string input_file){
             //All other numbers must be pushed right and down before square
             else{
                 //Top Left
-                out[row+down][col+right] = img[row][col];   
+                out[row+down][col+right] = img[row][col];
                 //Top Right
                 out[row+down][col+right+1] = img[row][col];
                 //Bottom Left
@@ -218,26 +218,26 @@ void task_e(std::string input_file){
         right = 1;
     }
     // and save śhis new image to file "taska.pgm"
-    writeImage("taske.pgm", out, h*2, w*2);
+    writeImage("taske.pgm", out, height*5, width*5);
     //h*2 and w*2 because need 200% original size space
 }
 
 
 //Complete
-void task_f(std::string input_file){
+void pixelate(int width, int height, int img[MAX_H][MAX_W]){
     //Create 2D array to hold numbers for colors from input image
-    int img[MAX_H][MAX_W];
-    int h, w;
+//    int img[MAX_H][MAX_W];
+//    int h, w;
 
     //Take inImage.pgm color numbers and store them into the img 2D array (line 9)
-    readImage(input_file, img, h, w);
+//    readImage(input_file, img, h, w);
 
     //Create 2D array to hold numbers for colors from input image to create output image
     int out[MAX_H][MAX_W];
 
     //Store color numbers from input image in output array and modify them (based on question)
-    for (int row = 0; row < h; row+=2){
-        for (int col = 0; col < w; col+=2){
+    for (int row = 0; row < height; row+=2){
+        for (int col = 0; col < width; col+=2){
             //Corners of Square
             int top_left = img[row][col];
             int top_right = img[row][col+1];
@@ -254,6 +254,6 @@ void task_f(std::string input_file){
             out[row+1][col+1] = average;
         }
     }
-    // and save this new image to file 
-    writeImage("taskf.pgm", out, h, w);
+    // and save this new image to file
+    writeImage("taskf.pgm", out, height, width);
 }
